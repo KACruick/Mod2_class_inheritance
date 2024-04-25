@@ -9,14 +9,20 @@ const Person = require('./person');
 //    array of `Teacher` instances, `teachers`, as a parameter and returns the sum
 //    of the `yearsOfExperience` of all `teachers`.
 
-class Teacher extends Animal {
-  constructor(firstName, lastName, age) {
-    super(firstName, lastName, age, subject, yearsOfExperience)
-    this.subject = subject
-    this.yearsOfExperience = yearsOfExperience
+class Teacher extends Person {
+  constructor(firstName, lastName, subject, yearsOfExperience) {
+    super(firstName, lastName, subject, yearsOfExperience)
+    this.subject = subject;
+    this.yearsOfExperience = yearsOfExperience;
   }
   static combinedYearsOfExperience(teachers) {
     //returns the sum of the `yearsOfExperience` of all `teachers`.
+    let sum = 0;
+    for (let i = 0; i < teachers.length; i++) {
+      let teacher = teachers[i];
+      sum += teacher.yearsOfExperience;
+    }
+    return sum;
   }
 }
 
