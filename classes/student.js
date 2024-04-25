@@ -14,21 +14,20 @@ const Person = require('./person');
 // have created the `Student` class correctly:
 
 
-class Student extends Animal {
+class Student extends Person {
   constructor(firstName, lastName, age, major, GPA) {
     super(firstName, lastName, age)
     this.major = major
     this.GPA = GPA
   }
+
   static compareGPA(student1, student2) {
     if (student1.GPA > student2.GPA) {
-      return '${student1.firstName} ${student1.lastName} has the higher GPA'
-    }
-    if (student2.GPA > student1.GPA) {
-      return '${student2.firstName} ${student2.lastName} has the higher GPA'
-    }
-    if (student1.GPA === student2.GPA) {
-      return "Both students have the same GPA."
+      return `${student1.firstName} ${student1.lastName} has the higher GPA.`;
+    } else if (student2.GPA > student1.GPA) {
+      return `${student2.firstName} ${student2.lastName} has the higher GPA.`;
+    } else {
+      return "Both students have the same GPA";
     }
   }
 }
